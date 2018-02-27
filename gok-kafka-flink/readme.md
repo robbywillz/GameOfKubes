@@ -6,6 +6,11 @@
 
 [MiniKube](https://kubernetes.io/docs/getting-started-guides/minikube) - is used to orchestrate Kafka and Flink containers
 
+### Data Flow
+
+Postman - REST client(send json message) **->** Kafka REST producer **->** Kafka Broker(cluster) **->** Flink Stream processor
+
+
 ### Start Minikube
 
 ```
@@ -75,7 +80,7 @@ Get REST service of kafka producer url from *minikube*:
 $ minikube.exe service kafka-rest-service --url
 ```
 
-Use postman chrom extension or any REST(HTTP) client to send messages based on above URL and attach the URI:
+Use *Postman - REST Client* Google Chrome extension or any REST(HTTP) client to send messages based on above URL with the URI:
 ```
 http://192.168.99.100:30325/gok-kafka-producer-rest/webapi/myresource
 ```
