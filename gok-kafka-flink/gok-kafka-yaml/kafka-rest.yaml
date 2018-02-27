@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: kafka-rest
+spec:
+  template:
+    metadata:
+      labels:
+        app: kafka-rest
+    spec:
+      containers:
+      - name: kafka-rest
+        image: robbywillz/testrepo:gok-kafka-rest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: KAFKA_BOOTSTRAP_SERVERS
+          value: "kafka-service:9092"
+        
